@@ -1,0 +1,34 @@
+{
+  "name": "pouchdb-events",
+  "version": "0.2.0",
+  "description": "pouchdb events",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pouchdb/events.git"
+  },
+  "scripts": {
+    "test": "./node_modules/istanbul/lib/cli.js test ./node_modules/mocha/bin/_mocha test/test.js",
+    "build": "mkdir -p dist && browserify index.js -s pouchdb-events -o dist/pouchdb-events.js"
+  },
+  "keywords": [
+    "pouch",
+    "pouchdb",
+    "events",
+    "couch",
+    "couchdb"
+  ],
+  "author": "",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/pouchdb/events/issues"
+  },
+
+  "devDependencies": {
+    "chai": "~1.8.1",
+    "mocha": "~1.14.0",
+    "istanbul": "~0.1.45",
+    "pouchdb": "0.0.16",
+    "browserify": "~2.36.0"
+  }
+}
