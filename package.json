@@ -1,6 +1,6 @@
 {
   "name": "pouchdb-events",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "pouchdb events",
   "main": "index.js",
   "repository": {
@@ -23,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/pouchdb/events/issues"
   },
-
   "devDependencies": {
     "chai": "~1.8.1",
     "mocha": "~1.14.0",
