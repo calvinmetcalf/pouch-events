@@ -77,8 +77,12 @@ describe('events',function(){
       })
     });
   });
-  // it("should work",function(done){
-  //     db.on('destroy',function(){done();});
-  //     Pouch.destroy('dbtest5');
-  //   });
-})
+  it("destroy work",function(done){
+      db.on('destroy',function(db){
+        done();
+      });
+      setTimeout(function(){
+        Pouch.destroy(root + 'dbtest' + i);
+      },500);
+  });
+});

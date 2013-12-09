@@ -2,7 +2,6 @@
 "use strict";
 var events = require('events');
 var util = require('util');
-var DBs = {};
 function PouchEvents(db) {
   if(!(this instanceof PouchEvents)){
     return new PouchEvents(db);
@@ -12,7 +11,6 @@ function PouchEvents(db) {
       db.emit('error',err);
       return;
     }
-    DBs[info.db_name] = db;
     db.changes({
         conflicts: true,
         include_docs: true,
@@ -29,17 +27,14 @@ function PouchEvents(db) {
           }
         }
     });
+    PouchEvents._delete = function(name){
+      db.emit('destroy',{name:name});
+      db.removeAllListeners();
+    }
   });
-
 }
 util.inherits(PouchEvents, events.EventEmitter);
-PouchEvents._delete = function(name){
-  if(name in DBs){
-    DBs[name].emit('destroy',true);
-    DBs[name].removeAllListeners();
-    delete DBs[name];
-  }
-}
+
 
 
 module.exports = PouchEvents;
